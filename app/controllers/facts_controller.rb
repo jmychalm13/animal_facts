@@ -2,7 +2,7 @@ class FactsController < ApplicationController
   def index
     @facts = Fact.all
 
-    render json: @facts.as_json
+    render template: "facts/index"
   end
 
   def create
@@ -13,6 +13,12 @@ class FactsController < ApplicationController
       rank: params[:rank],
     )
 
-    render json: @fact.as_json
+    render template: "facts/show"
+  end
+
+  def show
+    @fact = Fact.find_by(id: params[:id])
+
+    render template: "facts/show"
   end
 end

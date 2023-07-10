@@ -15,4 +15,12 @@ class FactsControllerTest < ActionDispatch::IntegrationTest
       assert_response 200
     end
   end
+
+  test "show" do
+    get "/facts/#{Fact.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["animal", "habitat", "fact", "rank"], data.keys
+  end
 end

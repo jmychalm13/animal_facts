@@ -2,6 +2,6 @@ class FactsController < ApplicationController
   def index
     @facts = Fact.all
 
-    render template: "facts/index"
+    render json: @facts.as_json
   end
 end

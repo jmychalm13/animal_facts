@@ -23,4 +23,20 @@ class FactsControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal ["animal", "habitat", "fact", "rank"], data.keys
   end
+
+  test "update" do
+    fact = Fact.first
+    patch "/facts/#{fact.id}.json", params: { name: "Updated name" }
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal "Updated animal", data["animal"]
+  end
+
+  test "destroy" do
+    assert_difference "Fact.count", -1 do
+      delete "/facts/#{Fact.first.id}.json"
+      assert_response 200
+    end
+  end
 end

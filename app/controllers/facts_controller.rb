@@ -21,4 +21,25 @@ class FactsController < ApplicationController
 
     render template: "facts/show"
   end
+
+  def update
+    @fact = Fact.find_by(id: params[:id])
+
+    @fact.update(
+      animal: params[:animal] || @fact.animal,
+      habitat: params[:habitat] || @fact.habitat,
+      fact: params[:fact] || @fact.fact,
+      rank: params[:rank] || @fact.rank,
+    )
+
+    render template: "facts/show"
+  end
+
+  def destroy
+    fact = Fact.find_by(id: params[:id])
+
+    fact.destroy
+
+    render json: { message: "Animal destroyed : (" }
+  end
 end

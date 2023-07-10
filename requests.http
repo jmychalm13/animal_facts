@@ -13,3 +13,14 @@ Content-Type: application/json
   "rank": 7,
   "habitat": "Katherine's desk"
 }
+
+### update
+PATCH http://localhost:3000/facts/1.json
+Content-Type: application/json
+
+{
+  "animal": "lion"
+}
+
+### delete
+DELETE http://localhost:3000/facts/1.json

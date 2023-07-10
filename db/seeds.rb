@@ -1,7 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+puts "Seeding started"
+
+fact = Fact.create(
+  animal: "dolphin",
+  habitat: "ocean",
+  fact: "Dolphins are the fastest mammals on Earth",
+  rank: 2,
+)
+
+fact = Fact.create(
+  animal: "dog",
+  habitat: "house or wild",
+  fact: "There sense of smell is at least 40 times better than ours.",
+  rank: 1,
+)
+
+fact = Fact.create(
+  animal: "tiger",
+  habitat: "South and Southeast Asia, China and Eastern Russia",
+  fact: "The females in the pride do the hunting.",
+  rank: 3,
+)
+
+puts "Seeding complete"

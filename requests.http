@@ -1,0 +1,15 @@
+GET http://localhost:3000/facts.json
+
+### show fact
+GET http://localhost:3000/facts/2.json
+
+### create method
+POST http://localhost:3000/facts.json
+Content-Type: application/json
+
+{
+  "animal": "cat",
+  "fact": "cat's are not as co-dependent as dogs",
+  "rank": 7,
+  "habitat": "Katherine's desk"
+}
